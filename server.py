@@ -3,28 +3,32 @@ import markovify
 
 app = Flask(__name__)
 
-with open("wall.txt") as f:
-    text = f.read()
+datasets = ['jumoreski', 'overhear', 'che', 'horo']
 
-text_model = markovify.Text(text, state_size=3)
-
-oh_model = markovify.Text(open('wall-overhear.txt').read(), state_size=3)
-
-
-def generate():
-    # TODO
-    return text_model.make_sentence(tries=1000)
+models = {}
+for k in datasets:
+    models[k] = markovify.Text(open('wall-%s.txt' % k).read(), state_size=3)
 
 
-def generate_oh():
-    return oh_model.make_sentence(tries=1000)
+def generate(model):
+    return model.make_sentence(tries=1000)
 
 
 @app.route("/")
 def hello():
-    return render_template('index.html', joke=generate(), subj='юморесок')
+    return render_template('index.html', joke=generate(models['jumoreski']), subj='юморесок')
 
 
 @app.route("/overhear")
 def oh():
-    return render_template('index.html', joke=generate_oh(), subj='подслушано')
+    return render_template('index.html', joke=generate(models['overhear']), subj='подслушано')
+
+
+@app.route("/che")
+def che():
+    return render_template('index.html', joke=generate(models['che']), subj='"че"')
+
+
+@app.route("/horo")
+def horo():
+    return render_template('index.html', joke=generate(models['horo']), subj='гороскопов')
