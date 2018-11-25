@@ -8,12 +8,10 @@ with open("wall.txt") as f:
 
 text_model = markovify.Text(text, state_size=3)
 
-print(text_model.make_sentence(tries=1000))
-
 
 def generate():
     # TODO
-    return '<JOKE TEXT>'
+    return text_model.make_sentence(tries=1000)
 
 
 @app.route("/")
