@@ -3,12 +3,33 @@
     <meta charset="utf-8"/>
     <title>Генератор юморесок</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 
 <body>
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-static-top navbar-light bg-light mb-2">
           <a class="navbar-brand" href="#">Генератор {{ subj }}</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarToggler">
+                <ul class="navbar-nav ml-auto mt-2 mt-lg-0 navbar-right">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/">Юморески</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/overhear">Подслушано</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/che">"че"</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/horo">Гороскопы</a>
+                  </li>
+                </ul>
+              </div>
         </nav>
         <div class="jumbotron">
                         <p>{{ joke }}</p>
