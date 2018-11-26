@@ -1,4 +1,6 @@
 Flask
 markovify
 gunicorn
-
+click
+joblib
+vk_api
