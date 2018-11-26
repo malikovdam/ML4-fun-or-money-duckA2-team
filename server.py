@@ -7,7 +7,7 @@ datasets = ['jumoreski', 'overhear', 'che', 'horo']
 
 models = {}
 for k in datasets:
-    models[k] = markovify.Text(open('wall-%s.txt' % k).read(), state_size=3)
+    models[k] = markovify.Text(open('data/wall-%s.txt' % k).read(), state_size=3)
 
 
 def generate(model):
